@@ -14,13 +14,12 @@ def createSample(sample):
  
 
   for i in range(sample):
-      random_String = ''.join(random.choice(string.ascii_letters) for x in range(5))
+      fabric_id = ''.join(random.choice(string.ascii_letters) for x in range(5))
       now = datetime.now()
       for j in range(random.randint(10, 15)):
-          defectID = random.randint(1, 22)
-          yield random_String, defectID , now
+          defect_id = random.randint(1, 22)
+          yield fabric_id, defect_id , now
           time.sleep(1)
       time.sleep(15)
-
 
  

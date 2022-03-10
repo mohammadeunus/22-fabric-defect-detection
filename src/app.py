@@ -4,12 +4,13 @@ import src.db.database as db
 
 import mysql.connector as conn  # import a module from mysql
 
-#connected this program with database
-myDb = ctr.create_server_connection("localhost","root","root")
+# connected this program with database
+myDb = db.create_server_connection("localhost","root","root")
 
-#show the databases within myDb
-mdl.showDatabasesInSchemas(myDb)
+# how the databases within myDb
+db.showDatabasesInSchemas(myDb)
 
+def
 for i in mdl.createSample(5):
     if i[1] == 1:
         spl = "UPDATE customers SET address = 'Canyon 123' WHERE address = 'Valley 345'"
@@ -31,8 +32,7 @@ for i in mdl.createSample(5):
 
 
 def update_url_hits(url,defect_id):
-    sql_query = "UPDATE fabric SET %s += 1 WHERE fabric_id = %s"
-    val = (url,defect_id)
-    db.execute_query(myDb, sql_query, val)
+    sql_query = "update fabric set hole1=hole1+1 WHERE fabric_id= %s"
+    db.execute_query(myDb, sql_query)
 
 update_url_hits("hole1",1)

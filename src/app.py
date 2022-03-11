@@ -10,11 +10,6 @@ myDb = db.create_server_connection("localhost", "root", "root")
 # how the databases within myDb
 db.show_databases_in_schemas(myDb)
 
-# create samples and upload in database
-ctr.sample_create(5)
-
-# def update_url_hits(url, defect_id):
-#    sql_query = "update fabric set hole1=hole1+1 WHERE fabric_id= %s"
-#    db.execute_query(myDb, sql_query)
-#
-# update_url_hits("hole1", 1)
+# insert into database based on the return values from the model
+for m in mdl.create_sample(5):
+    ctr.sample_making(m[0], m[1])

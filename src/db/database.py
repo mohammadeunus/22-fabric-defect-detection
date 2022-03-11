@@ -3,7 +3,7 @@ import mysql.connector as conn  # import connector module from mysql as conn
 
 def create_server_connection(host_name, user_name, user_password):
     """
-    connect this jupyter with the database. 
+    connect this jupyter notebook with the database.
     """
     connection = None
     try:
@@ -12,9 +12,13 @@ def create_server_connection(host_name, user_name, user_password):
             user=user_name,
             passwd=user_password
         )
+        cursor = connection.cursor()
+        cursor.execute("use mubintest")
+        connection.commit()
+
         print("MySQL Database connection successful")
     except Exception as err:
-        print(f"Error: '{err}'")
+        print(f"Error in create_server_connection: '{err}'")
     return connection
 
 
@@ -23,9 +27,9 @@ def execute_query(connection, query):
     try:
         cursor.execute(query)
         connection.commit()
-        print("Query successful")
+        print("execute_query successful")
     except Exception as err:
-        print(f"Error: '{err}'")
+        print(f"Error in execute_query: '{err}'")
 
 
 def read_query(connection, query):
@@ -39,7 +43,7 @@ def read_query(connection, query):
         result = cursor.fetchall()
         return result
     except Exception as err:
-        print(f"Error: '{err}'")
+        print(f"Error in read_query: '{err}'")
 
 
 def show_databases_in_schemas(schemas_name):
@@ -61,4 +65,4 @@ def execute_list_query(connection, sql, val):
         connection.commit()
         print("Query successful")
     except Exception as err:
-        print(f"Error: '{err}'")
+        print(f"Error in execute_list_query: '{err}'")

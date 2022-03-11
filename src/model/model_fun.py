@@ -11,10 +11,10 @@ def create_sample(sample):
     from datetime import datetime
 
     for i in range(sample):
-        fabric_id = ''.join(random.choice(string.ascii_letters) for x in range(5))
+        fabric_id = random.randint(1, 100)
         now = datetime.now()
         for j in range(random.randint(10, 15)):
-            defect_id = random.randint(1, 22)
+            defect_id = random.randint(1, 4)
             yield fabric_id, defect_id, now
             time.sleep(1)
-        time.sleep(15)
+        time.sleep(5)

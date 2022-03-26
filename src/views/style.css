@@ -1,0 +1,15 @@
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+.wf {
+  outline: 1px solid black;
+}
+.ns {
+  background-color: silver;
+}
+.row {
+  min-height: 500px;
+}
+.row-fluid {
+  min-height: 500px;
+}

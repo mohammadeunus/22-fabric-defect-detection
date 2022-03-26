@@ -8,8 +8,6 @@
   background-color: silver;
 }
 .row {
-  min-height: 500px;
+  min-height: content;
 }
-.row-fluid {
-  min-height: 500px;
-}
+ 

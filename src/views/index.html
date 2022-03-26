@@ -17,6 +17,7 @@
     />
 
     <!-- Bootstrap CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -26,6 +27,7 @@
   </head>
 
   <body>
+    
     <!-- Optional JavaScript -->
     <!-- Many of bootstrap components require the use of JavaScript to function, thus we will be adding the following 
         script: jQuery first, then Popper.js, then Bootstrap JS -->
@@ -63,7 +65,7 @@
           <a class="navbar-brand" href="#">AUTO TFD2</a>
           <ul class="navbar-nav ms-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html" style="color: #ffd000"
+              <a class="nav-link" style="color: #ffd000"
                 >Video panel <span class="sr-only">(current)</span></a
               >
             </li>
@@ -92,8 +94,36 @@
             </div>
           </div>
           <div class="col-sm-4 center">
-            <h2>hello table</h2>
-          </div>
+            <canvas id="myChart" style="width:100%;max-width:600px; height: 300px;"></canvas>
+            <script>
+              var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+              var yValues = [55, 49, 44, 24, 15];
+              var barColors = [
+                "#b91d47",
+                "#00aba9",
+                "#2b5797",
+                "#e8c3b9",
+                "#1e7145"
+              ];
+              
+              new Chart("myChart", {
+                type: "pie",
+                data: {
+                  labels: xValues,
+                  datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                  }]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: "World Wide Wine Production 2018"
+                  }
+                }
+              });
+              </script>
+             
         </div>
         <div class="row">
           <table class="table-bordered table-responsive my-4">
@@ -143,8 +173,6 @@
         </div>
       </div>
     </section>
-    <footer>
-      <p>this is footer</p>
-    </footer>
   </body>
+   
 </html>
